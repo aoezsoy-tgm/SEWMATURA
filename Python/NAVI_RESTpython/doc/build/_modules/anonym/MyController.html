@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>anonym.MyController &#8212; Python REST-ful Client 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="top" title="Python REST-ful Client 1.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Python REST-ful Client 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for anonym.MyController</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">PySide.QtCore</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">PySide.QtGui</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">anonym.MyView</span><span class="o">,</span> <span class="nn">anonym.MyModel</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="k">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="MyController"><a class="viewcode-back" href="../../anonym.html#anonym.MyController.MyController">[docs]</a><span class="k">class</span> <span class="nc">MyController</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Controller</span>
+
+<span class="sd">    Die Controller Klasse beinhaltet die Action Listener und ruft die jeweiligen Methoden in der Model Klasse auf, wenn</span>
+<span class="sd">    die Buttons geklickt werden.</span>
+
+<span class="sd">    __version__ = &#39;1.0&#39;</span>
+
+<span class="sd">    __author__ = &#39;Anonym&#39;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Konstruktor zum Initialiseren:</span>
+
+<span class="sd">        Erhaelt View und Model als Attribut</span>
+<span class="sd">        Connected den Anzeigen Button mit der dazugehoerigen Methode</span>
+
+<span class="sd">        :param parent:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myForm</span> <span class="o">=</span> <span class="n">anonym</span><span class="o">.</span><span class="n">MyView</span><span class="o">.</span><span class="n">Ui_MainWindow</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myForm</span><span class="o">.</span><span class="n">setupUi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myModel</span> <span class="o">=</span> <span class="n">anonym</span><span class="o">.</span><span class="n">MyModel</span><span class="o">.</span><span class="n">MyModel</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myForm</span><span class="o">.</span><span class="n">submitbutt</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">submitRequest</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MyController.submitRequest"><a class="viewcode-back" href="../../anonym.html#anonym.MyController.MyController.submitRequest">[docs]</a>    <span class="k">def</span> <span class="nf">submitRequest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Diese Funktion wird beim Klicken des Anzeigen Buttons aufgerufen.</span>
+<span class="sd">        Dabei wird zuerst ueberprueft, ob sich in den beiden Eingabefeldern (Start, Ziel) ein Text befindet.</span>
+<span class="sd">        Sollte kein Text vorhanden sein, wird die Methode im Model nicht aufgerufen.</span>
+
+<span class="sd">        Wenn ein Text in den Feldern vorhanden ist, wird die Request Funktion im Model mit den beiden</span>
+<span class="sd">        Parametern (Start, Ziel) aufgerufen.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myForm</span><span class="o">.</span><span class="n">startinp</span><span class="o">.</span><span class="n">text</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">myForm</span><span class="o">.</span><span class="n">zielin</span><span class="o">.</span><span class="n">text</span><span class="p">()</span><span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">myForm</span><span class="o">.</span><span class="n">statbar</span><span class="o">.</span><span class="n">showMessage</span><span class="p">(</span><span class="s2">&quot;Gültige Adresse eintragen bitte!&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">myForm</span><span class="o">.</span><span class="n">ausgabe</span><span class="o">.</span><span class="n">setText</span><span class="p">((</span><span class="s2">&quot;Gültige Adresse eintragen bitte!&quot;</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">start</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">myForm</span><span class="o">.</span><span class="n">startinp</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+            <span class="n">ziel</span><span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">myForm</span><span class="o">.</span><span class="n">zielin</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">myForm</span><span class="o">.</span><span class="n">ausgabe</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myModel</span><span class="o">.</span><span class="n">getRequest</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">ziel</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">myForm</span><span class="o">.</span><span class="n">statbar</span><span class="o">.</span><span class="n">showMessage</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myModel</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span></div></div>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">MyController</span><span class="p">()</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Python REST-ful Client 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Anonym.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+    </div>
+  </body>
+</html>

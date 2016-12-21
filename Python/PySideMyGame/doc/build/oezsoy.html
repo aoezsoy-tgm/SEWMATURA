@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to PySideMyGame’s Documentation! &#8212; PySideMyGame 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="PySideMyGame 1.0 documentation" href="index.html" />
+    <link rel="up" title="oezsoy" href="modules.html" />
+    <link rel="prev" title="oezsoy" href="modules.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="oezsoy"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PySideMyGame 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">oezsoy</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-pysidemygame-s-documentation">
+<h1>Welcome to PySideMyGame&#8217;s Documentation!<a class="headerlink" href="#welcome-to-pysidemygame-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="oezsoy-ahmet-5yhitm">
+<h2>Oezsoy Ahmet 5YHITM<a class="headerlink" href="#oezsoy-ahmet-5yhitm" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-oezsoy.MyController">
+<span id="mycontroller"></span><h2>MyController<a class="headerlink" href="#module-oezsoy.MyController" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="oezsoy.MyController.MyController">
+<em class="property">class </em><code class="descclassname">oezsoy.MyController.</code><code class="descname">MyController</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/MyController.html#MyController"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.MyController.MyController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QMainWindow</span></code></p>
+<p>Controller:
+Im Controller werden die Methoden von der Model Klasse aufgerufen und es reagiert auf die Button Klicks(Funktion).</p>
+<p>__version__ = &#8216;1.0&#8217;</p>
+<p>__author__ = &#8216;Oezsoy Ahmet&#8217;</p>
+<dl class="method">
+<dt id="oezsoy.MyController.MyController.anew">
+<code class="descname">anew</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/MyController.html#MyController.anew"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.MyController.MyController.anew" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bei dieser Methode wird die diese Methode aufgerufen wenn der Button &#8216;Neu&#8217; Button geklickt wird und
+die Zaehler werden auf Start-Zustand gesetzt.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oezsoy.MyController.MyController.cbutton">
+<code class="descname">cbutton</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/MyController.html#MyController.cbutton"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.MyController.MyController.cbutton" title="Permalink to this definition">¶</a></dt>
+<dd><p>Diese Methode ist dafür da, welche Methode bei einem Klick aufgerufen werden soll mithilfe eines ButtonHandlers</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oezsoy.MyController.MyController.handleb">
+<code class="descname">handleb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/MyController.html#MyController.handleb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.MyController.MyController.handleb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zuerst wird geschaut ob es sich um einen QPushButton handelt und dann wird der Text vom Button geholt und
+mit den Werten verglichen. (Werte 1-15)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oezsoy.MyController.MyController.randombutton">
+<code class="descname">randombutton</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/MyController.html#MyController.randombutton"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.MyController.MyController.randombutton" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bei dieser Methode werden die Button durcheinander gemischt damit bei jedem Start neue Zahlen mit einer
+anderen Reihenfolge erscheinen.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oezsoy.MyController.MyController.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/MyController.html#MyController.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.MyController.MyController.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#64;param self
+Wenn ein neues Spiel gestartet wird, werden die Buttons wieder aktiviert und die Zaehler zurückgesetzt.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="oezsoy.MyController.MyController.staticMetaObject">
+<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object at 0x04A91D28&gt;</em><a class="headerlink" href="#oezsoy.MyController.MyController.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="oezsoy.MyController.getrandbits">
+<code class="descclassname">oezsoy.MyController.</code><code class="descname">getrandbits</code><span class="sig-paren">(</span><em>k</em><span class="sig-paren">)</span> &rarr; x.  Generates an int with k random bits.<a class="headerlink" href="#oezsoy.MyController.getrandbits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oezsoy.MyController.random">
+<code class="descclassname">oezsoy.MyController.</code><code class="descname">random</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; x in the interval [0, 1).<a class="headerlink" href="#oezsoy.MyController.random" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-oezsoy.MyModel">
+<span id="mymodel"></span><h2>MyModel<a class="headerlink" href="#module-oezsoy.MyModel" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="oezsoy.MyModel.MyModel">
+<em class="property">class </em><code class="descclassname">oezsoy.MyModel.</code><code class="descname">MyModel</code><a class="reference internal" href="_modules/oezsoy/MyModel.html#MyModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.MyModel.MyModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Model
+Kümmert sich um die Statistik(Logik).</p>
+<p>__version__ = &#8216;1.0&#8217;</p>
+<p>__author__ = &#8216;Oezsoy Ahmet&#8217;</p>
+<dl class="method">
+<dt id="oezsoy.MyModel.MyModel.cright">
+<code class="descname">cright</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/MyModel.html#MyModel.cright"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.MyModel.MyModel.cright" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bei einem richtigen Klick wird diese Methode aufgerufen.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oezsoy.MyModel.MyModel.cwrong">
+<code class="descname">cwrong</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/MyModel.html#MyModel.cwrong"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.MyModel.MyModel.cwrong" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bei einem falschen Klick wird diese Methode aufgerufen.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oezsoy.MyModel.MyModel.newGame">
+<code class="descname">newGame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/MyModel.html#MyModel.newGame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.MyModel.MyModel.newGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Beim Neustart wird diese Methode aufgerufen. (Alle Variablen werden zurückgesetzt)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-oezsoy.MyView">
+<span id="myview"></span><h2>MyView<a class="headerlink" href="#module-oezsoy.MyView" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="oezsoy.MyView.Ui_MainWindow">
+<em class="property">class </em><code class="descclassname">oezsoy.MyView.</code><code class="descname">Ui_MainWindow</code><a class="reference internal" href="_modules/oezsoy/MyView.html#Ui_MainWindow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.MyView.Ui_MainWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="oezsoy.MyView.Ui_MainWindow.retranslateUi">
+<code class="descname">retranslateUi</code><span class="sig-paren">(</span><em>MainWindow</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/MyView.html#Ui_MainWindow.retranslateUi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.MyView.Ui_MainWindow.retranslateUi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oezsoy.MyView.Ui_MainWindow.setupUi">
+<code class="descname">setupUi</code><span class="sig-paren">(</span><em>MainWindow</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/MyView.html#Ui_MainWindow.setupUi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.MyView.Ui_MainWindow.setupUi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to PySideMyGame&#8217;s Documentation!</a><ul>
+<li><a class="reference internal" href="#oezsoy-ahmet-5yhitm">Oezsoy Ahmet 5YHITM</a></li>
+<li><a class="reference internal" href="#module-oezsoy.MyController">MyController</a></li>
+<li><a class="reference internal" href="#module-oezsoy.MyModel">MyModel</a></li>
+<li><a class="reference internal" href="#module-oezsoy.MyView">MyView</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="modules.html"
+                        title="previous chapter">oezsoy</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/oezsoy.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="oezsoy"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PySideMyGame 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >oezsoy</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Oezsoy Ahmet.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+    </div>
+  </body>
+</html>

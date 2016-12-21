@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="https://java.sun.com/jsf/core">
+	<h:head>
+        <title>Show users</title>
+    </h:head>
+    <h:body>
+		<p:dataTable id="userTable" var="user" value="#{userBean.users}">
+			<p:column headerText="ID">
+				<h:outputText value="#{user.id}" />
+			</p:column>
+			<p:column headerText="First name">
+				<h:outputText value="#{user.vname}" />
+			</p:column>
+			<p:column headerText="Last name">
+				<h:outputText value="#{user.nname}" />
+			</p:column>
+			<p:column headerText="Age">
+				<h:outputText value="#{user.age}" />
+			</p:column>
+		</p:dataTable>
+		<p:button outcome="index" value="Return" icon="ui-icon-star" />
+		<!--for choosing the columns-->
+		<p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" />
+        <p:columnToggler datasource="userTable" trigger="toggler" />
+    </h:body>
+</html>

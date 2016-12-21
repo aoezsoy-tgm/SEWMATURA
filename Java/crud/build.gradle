@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+jettyRun {
+	httpPort = 8080
+	contextPath = 'crud'
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+   compile 'javax.servlet:javax.servlet-api:3.1.0'
+   compile 'com.sun.faces:jsf-api:2.2.8-15'
+   compile 'com.sun.faces:jsf-impl:2.2.8-15'
+   compile 'org.primefaces:primefaces:5.2'
+   // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+   compile group: 'org.hibernate', name: 'hibernate-core', version: '4.3.6.Final' 
+   // https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
+   compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.8.11.2'
+   // https://mvnrepository.com/artifact/net.kemitix/sqlite-dialect
+   compile 'com.enigmabridge:hibernate4-sqlite-dialect:0.1.2'
+	}

@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>oezsoy.Clock_Analog_Digital &#8212; Clock_Analog_Digital 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="top" title="Clock_Analog_Digital 1.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Clock_Analog_Digital 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for oezsoy.Clock_Analog_Digital</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pygame</span><span class="o">,</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">pygame.locals</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">radians</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+<div class="viewcode-block" id="Clock_Analog_Digital"><a class="viewcode-back" href="../../index.html#oezsoy.Clock_Analog_Digital.Clock_Analog_Digital">[docs]</a><span class="k">class</span> <span class="nc">Clock_Analog_Digital</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Clock_Analog_Digital - Klasse</span>
+
+<span class="sd">        Die Clock_Analog_Digital-Klasse beinhaltet die Logik der Klasse um eine Analoge oder Digitale Uhr zu erstellen.</span>
+<span class="sd">        Mit der Taste A wählt man die Analogdarstellung, mit der Taste D wählt man die Digitaldarstellung,</span>
+<span class="sd">        mit der Taste P wechselt man zwischen kontinuierlicher Variante und diskreter Variante (Analogdarstellung) und</span>
+<span class="sd">        wenn man escape drückt dann wird die Uhr beendet.</span>
+
+<span class="sd">        Als Pattern wird die Strategy-Pattern verwendet.</span>
+
+<span class="sd">        __version__ = &#39;1.0&#39;</span>
+
+<span class="sd">        __author__ = &#39;Oezsoy Ahmet&#39;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Clock_Analog_Digital.__init__"><a class="viewcode-back" href="../../index.html#oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">analog_loop</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Konstruktor - dient für die Initialiserung der Attribute und um die Definition der Punkte bzw. Farben.</span>
+<span class="sd">        Mit welcher Uhr das Programm das gestartet wird, hängt vom Benutzer ab - parameter (Strategy Pattern) analog_loop</span>
+
+<span class="sd">        Es gibt 2 Strategien:</span>
+<span class="sd">        Entweder mit der Analogen Uhr starten (analog_loop=True) oder mit der Digitalen Uhr starten (analog_loop=False)</span>
+
+<span class="sd">        :param analog_loop: Wenn es true ist, dann erscheint die Analoge Uhr. Wenn es false ist, dann erscheint die Digitale Uhr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Initialisieren der Farben und des Bildschirms(Bildfläche)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color_white</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color_red</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color_black</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color_green</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">digitBackground</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">digitBorder</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">((</span><span class="mi">900</span><span class="p">,</span> <span class="mi">900</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">color_red</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">point_x</span> <span class="o">=</span> <span class="mi">450</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">point_y</span> <span class="o">=</span> <span class="mi">450</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">center_point</span> <span class="o">=</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">point_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">point_y</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">analog_loop</span> <span class="o">=</span> <span class="n">analog_loop</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">second_jump</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Clock_Analog_Digital.punkt"><a class="viewcode-back" href="../../index.html#oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.punkt">[docs]</a>    <span class="k">def</span> <span class="nf">punkt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">angle</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Diese Funktion erstellt ein Punkt mit der Distanz/Radius r und dem Winkel W im Mittelpunkt.</span>
+
+<span class="sd">        :param r: radius/distanz zum Mittelpunkt</span>
+<span class="sd">        :param angle: winkel zum Mittelpunkt</span>
+<span class="sd">        :return: punkt (x,y)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">w1</span> <span class="o">=</span> <span class="n">radians</span><span class="p">(</span><span class="n">angle</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">-</span> <span class="mi">90</span><span class="p">)</span>
+        <span class="n">x1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">point_x</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">w1</span><span class="p">))</span>
+        <span class="n">y1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">point_y</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">w1</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Clock_Analog_Digital.analog"><a class="viewcode-back" href="../../index.html#oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.analog">[docs]</a>    <span class="k">def</span> <span class="nf">analog</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Diese Funktion erstellt eine Analoge Uhr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">color_white</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">60</span><span class="p">):</span>
+            <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_black</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">punkt</span><span class="p">(</span><span class="mi">430</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+            <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_black</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">punkt</span><span class="p">(</span><span class="mi">430</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">7</span><span class="p">)</span>
+        <span class="n">time_save</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">second_jump</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">time_save</span><span class="o">.</span><span class="n">tm_sec</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">time_save</span><span class="o">.</span><span class="n">tm_sec</span> <span class="o">+</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">%</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">time_save</span><span class="o">.</span><span class="n">tm_min</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">time_save</span><span class="o">.</span><span class="n">tm_hour</span>
+        <span class="k">if</span> <span class="n">h</span> <span class="o">&gt;</span> <span class="mi">12</span><span class="p">:</span>
+            <span class="n">h</span> <span class="o">-=</span> <span class="mi">12</span>
+        <span class="n">hm</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span> <span class="o">+</span> <span class="n">m</span> <span class="o">/</span> <span class="mf">60.0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_red</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">center_point</span><span class="p">,</span> <span class="mi">422</span><span class="p">)</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_black</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">center_point</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">punkt</span><span class="p">(</span><span class="mi">360</span><span class="p">,</span> <span class="n">hm</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_black</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">center_point</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">punkt</span><span class="p">(</span><span class="mi">410</span><span class="p">,</span> <span class="n">m</span><span class="p">),</span> <span class="mi">8</span><span class="p">)</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_white</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">center_point</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">punkt</span><span class="p">(</span><span class="mi">420</span><span class="p">,</span> <span class="n">s</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_caption</span><span class="p">(</span><span class="s2">&quot;ANALOG CLOCK&quot;</span><span class="p">)</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">update</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Clock_Analog_Digital.digital"><a class="viewcode-back" href="../../index.html#oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.digital">[docs]</a>    <span class="k">def</span> <span class="nf">digital</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Diese Funktion erstellt eine Digitale Uhr, wo die zeit als text/String erstellt wird mithilfe von pygame.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">zeit</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">zeit</span><span class="o">.</span><span class="n">tm_sec</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">zeit</span><span class="o">.</span><span class="n">tm_min</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">zeit</span><span class="o">.</span><span class="n">tm_hour</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">):</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">h</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">):</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">):</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digitBorder</span><span class="p">,</span> <span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">295</span><span class="p">,</span> <span class="mi">730</span><span class="p">,</span> <span class="mi">160</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">digitBackground</span><span class="p">,</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">720</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">myfont</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">SysFont</span><span class="p">(</span><span class="s2">&quot;None&quot;</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">myfont</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_black</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_caption</span><span class="p">(</span><span class="s2">&quot;DIGITAL CLOCK&quot;</span><span class="p">)</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">update</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Clock_Analog_Digital.handleAction"><a class="viewcode-back" href="../../index.html#oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.handleAction">[docs]</a>    <span class="k">def</span> <span class="nf">handleAction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Diese Funktion ist verantwortlich für das Action/Event - Handling.</span>
+<span class="sd">        Reagiert auf die Tastatureingaben vom Benutzer und führt die jeweiligen Funktionen aus, wie zum Beispiel</span>
+<span class="sd">        wechseln von Analog zu Digital, wechseln zwischen kontinuierlicher Variante und diskreter Variante(Analogdarstellung)</span>
+<span class="sd">        und beenden der Uhr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="p">(</span><span class="n">pygame</span><span class="o">.</span><span class="n">QUIT</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">KEYDOWN</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">K_ESCAPE</span><span class="p">):</span>
+                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">KEYDOWN</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">K_d</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">analog_loop</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">KEYDOWN</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">K_a</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">analog_loop</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">KEYDOWN</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">K_p</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">second_jump</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">second_jump</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">second_jump</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">analog_loop</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">color_white</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">analog</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">color_white</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">digital</span><span class="p">()</span>
+            <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">update</span><span class="p">()</span></div></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">Clock_Analog_Digital</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">handleAction</span><span class="p">()</span> <span class="c1"># Beim erzeugen des Objektes kann man die Vorgehenweise(Strategy) aussuchen. (analog=True, digital=False)</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Clock_Analog_Digital 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Oezsoy Ahmet.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+    </div>
+  </body>
+</html>

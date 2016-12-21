@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to Oezsoy’s Clock_Analog_Digital documentation! &#8212; Clock_Analog_Digital 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Clock_Analog_Digital 1.0 documentation" href="#" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Clock_Analog_Digital 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-oezsoy-s-clock-analog-digital-documentation">
+<h1>Welcome to Oezsoy&#8217;s Clock_Analog_Digital documentation!<a class="headerlink" href="#welcome-to-oezsoy-s-clock-analog-digital-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="oezsoy-ahmet-5yhitm">
+<h2>Oezsoy Ahmet 5YHITM<a class="headerlink" href="#oezsoy-ahmet-5yhitm" title="Permalink to this headline">¶</a></h2>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-oezsoy.Clock_Analog_Digital"></span><dl class="class">
+<dt id="oezsoy.Clock_Analog_Digital.Clock_Analog_Digital">
+<em class="property">class </em><code class="descclassname">oezsoy.Clock_Analog_Digital.</code><code class="descname">Clock_Analog_Digital</code><span class="sig-paren">(</span><em>analog_loop=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/Clock_Analog_Digital.html#Clock_Analog_Digital"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.Clock_Analog_Digital.Clock_Analog_Digital" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Clock_Analog_Digital - Klasse</p>
+<p>Die Clock_Analog_Digital-Klasse beinhaltet die Logik der Klasse um eine Analoge oder Digitale Uhr zu erstellen.
+Mit der Taste A wählt man die Analogdarstellung, mit der Taste D wählt man die Digitaldarstellung,
+mit der Taste P wechselt man zwischen kontinuierlicher Variante und diskreter Variante (Analogdarstellung) und
+wenn man escape drückt dann wird die Uhr beendet.</p>
+<p>Als Pattern wird die Strategy-Pattern verwendet.</p>
+<p>__version__ = &#8216;1.0&#8217;</p>
+<p>__author__ = &#8216;Oezsoy Ahmet&#8217;</p>
+<dl class="method">
+<dt id="oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>analog_loop=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/Clock_Analog_Digital.html#Clock_Analog_Digital.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Konstruktor - dient für die Initialiserung der Attribute und um die Definition der Punkte bzw. Farben.
+Mit welcher Uhr das Programm das gestartet wird, hängt vom Benutzer ab - parameter (Strategy Pattern) analog_loop</p>
+<p>Es gibt 2 Strategien:
+Entweder mit der Analogen Uhr starten (analog_loop=True) oder mit der Digitalen Uhr starten (analog_loop=False)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>analog_loop</strong> &#8211; Wenn es true ist, dann erscheint die Analoge Uhr. Wenn es false ist, dann erscheint die Digitale Uhr.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.analog">
+<code class="descname">analog</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/Clock_Analog_Digital.html#Clock_Analog_Digital.analog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.analog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Diese Funktion erstellt eine Analoge Uhr.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.digital">
+<code class="descname">digital</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/Clock_Analog_Digital.html#Clock_Analog_Digital.digital"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.digital" title="Permalink to this definition">¶</a></dt>
+<dd><p>Diese Funktion erstellt eine Digitale Uhr, wo die zeit als text/String erstellt wird mithilfe von pygame.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.handleAction">
+<code class="descname">handleAction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/Clock_Analog_Digital.html#Clock_Analog_Digital.handleAction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.handleAction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Diese Funktion ist verantwortlich für das Action/Event - Handling.
+Reagiert auf die Tastatureingaben vom Benutzer und führt die jeweiligen Funktionen aus, wie zum Beispiel
+wechseln von Analog zu Digital, wechseln zwischen kontinuierlicher Variante und diskreter Variante(Analogdarstellung)
+und beenden der Uhr.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.punkt">
+<code class="descname">punkt</code><span class="sig-paren">(</span><em>r</em>, <em>angle</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/oezsoy/Clock_Analog_Digital.html#Clock_Analog_Digital.punkt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oezsoy.Clock_Analog_Digital.Clock_Analog_Digital.punkt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Diese Funktion erstellt ein Punkt mit der Distanz/Radius r und dem Winkel W im Mittelpunkt.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> &#8211; radius/distanz zum Mittelpunkt</li>
+<li><strong>angle</strong> &#8211; winkel zum Mittelpunkt</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">punkt (x,y)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to Oezsoy&#8217;s Clock_Analog_Digital documentation!</a><ul>
+<li><a class="reference internal" href="#oezsoy-ahmet-5yhitm">Oezsoy Ahmet 5YHITM</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Clock_Analog_Digital 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Oezsoy Ahmet.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+    </div>
+  </body>
+</html>

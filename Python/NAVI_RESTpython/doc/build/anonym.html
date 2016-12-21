@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to Python REST-ful Client’s documentation! &#8212; Python REST-ful Client 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Python REST-ful Client 1.0 documentation" href="index.html" />
+    <link rel="up" title="anonym" href="modules.html" />
+    <link rel="prev" title="anonym" href="modules.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="anonym"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python REST-ful Client 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">anonym</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-python-rest-ful-client-s-documentation">
+<h1>Welcome to Python REST-ful Client&#8217;s documentation!<a class="headerlink" href="#welcome-to-python-rest-ful-client-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="anonym-5yhitm">
+<h2>Anonym 5YHITM<a class="headerlink" href="#anonym-5yhitm" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-anonym.MyController">
+<span id="mycontroller"></span><h2>MyController<a class="headerlink" href="#module-anonym.MyController" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="anonym.MyController.MyController">
+<em class="property">class </em><code class="descclassname">anonym.MyController.</code><code class="descname">MyController</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/anonym/MyController.html#MyController"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#anonym.MyController.MyController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QMainWindow</span></code></p>
+<p>Controller</p>
+<p>Die Controller Klasse beinhaltet die Action Listener und ruft die jeweiligen Methoden in der Model Klasse auf, wenn
+die Buttons geklickt werden.</p>
+<p>__version__ = &#8216;1.0&#8217;</p>
+<p>__author__ = &#8216;Anonym&#8217;</p>
+<dl class="attribute">
+<dt id="anonym.MyController.MyController.staticMetaObject">
+<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object at 0x04D2CB98&gt;</em><a class="headerlink" href="#anonym.MyController.MyController.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="anonym.MyController.MyController.submitRequest">
+<code class="descname">submitRequest</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/anonym/MyController.html#MyController.submitRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#anonym.MyController.MyController.submitRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Diese Funktion wird beim Klicken des Anzeigen Buttons aufgerufen.
+Dabei wird zuerst ueberprueft, ob sich in den beiden Eingabefeldern (Start, Ziel) ein Text befindet.
+Sollte kein Text vorhanden sein, wird die Methode im Model nicht aufgerufen.</p>
+<p>Wenn ein Text in den Feldern vorhanden ist, wird die Request Funktion im Model mit den beiden
+Parametern (Start, Ziel) aufgerufen.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="anonym.MyController.getrandbits">
+<code class="descclassname">anonym.MyController.</code><code class="descname">getrandbits</code><span class="sig-paren">(</span><em>k</em><span class="sig-paren">)</span> &rarr; x.  Generates an int with k random bits.<a class="headerlink" href="#anonym.MyController.getrandbits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="anonym.MyController.random">
+<code class="descclassname">anonym.MyController.</code><code class="descname">random</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &rarr; x in the interval [0, 1).<a class="headerlink" href="#anonym.MyController.random" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-anonym.MyModel">
+<span id="mymodel"></span><h2>MyModel<a class="headerlink" href="#module-anonym.MyModel" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="anonym.MyModel.MyModel">
+<em class="property">class </em><code class="descclassname">anonym.MyModel.</code><code class="descname">MyModel</code><span class="sig-paren">(</span><em>url='http://maps.googleapis.com/maps/api/directions/xml'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/anonym/MyModel.html#MyModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#anonym.MyModel.MyModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Model</p>
+<p>Beinhaltet die Logik bzw. die vom Controller benoetigten Attribute.
+In dieser Klasse befindet sich die Abfrage auf die Google-API.</p>
+<p>__version__ = &#8216;1.0&#8217;</p>
+<p>__author__ = &#8216;Anonym&#8217;</p>
+<dl class="method">
+<dt id="anonym.MyModel.MyModel.getRequest">
+<code class="descname">getRequest</code><span class="sig-paren">(</span><em>start</em>, <em>ziel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/anonym/MyModel.html#MyModel.getRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#anonym.MyModel.MyModel.getRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Diese Funktion wird verwendet für die Abfrage zur Google API.
+Mithilfe der Python Library &#8220;xml.etree&#8217; bzw. mithilfe von ElemenTrree die vom Google-Server erhaltene
+response, welche im XML - Format ist, geparsed.
+Um zu wissen, welche Attribute prinzipiell in der XML - Response vorhanden sind, kann man eine einfache Abfrage
+im Browser machen und sich die Response anschauen - dadurch erhaelt man die Struktur von der XML - Response
+z.B. <a class="reference external" href="http://maps.googleapis.com/maps/api/directions/xml?origin=Wien,Handleskai&amp;destination=Wien,Floridsdorf">http://maps.googleapis.com/maps/api/directions/xml?origin=Wien,Handleskai&amp;destination=Wien,Floridsdorf</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>start</strong> &#8211; Startadresse</li>
+<li><strong>ziel</strong> &#8211; Zieladresse</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Text zur Ausgabe</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-anonym.MyView">
+<span id="myview"></span><h2>MyView<a class="headerlink" href="#module-anonym.MyView" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="anonym.MyView.Ui_MainWindow">
+<em class="property">class </em><code class="descclassname">anonym.MyView.</code><code class="descname">Ui_MainWindow</code><a class="reference internal" href="_modules/anonym/MyView.html#Ui_MainWindow"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#anonym.MyView.Ui_MainWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="anonym.MyView.Ui_MainWindow.retranslateUi">
+<code class="descname">retranslateUi</code><span class="sig-paren">(</span><em>MainWindow</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/anonym/MyView.html#Ui_MainWindow.retranslateUi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#anonym.MyView.Ui_MainWindow.retranslateUi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="anonym.MyView.Ui_MainWindow.setupUi">
+<code class="descname">setupUi</code><span class="sig-paren">(</span><em>MainWindow</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/anonym/MyView.html#Ui_MainWindow.setupUi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#anonym.MyView.Ui_MainWindow.setupUi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to Python REST-ful Client&#8217;s documentation!</a><ul>
+<li><a class="reference internal" href="#anonym-5yhitm">Anonym 5YHITM</a></li>
+<li><a class="reference internal" href="#module-anonym.MyController">MyController</a></li>
+<li><a class="reference internal" href="#module-anonym.MyModel">MyModel</a></li>
+<li><a class="reference internal" href="#module-anonym.MyView">MyView</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="modules.html"
+                        title="previous chapter">anonym</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/anonym.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="anonym"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Python REST-ful Client 1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >anonym</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Anonym.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+    </div>
+  </body>
+</html>

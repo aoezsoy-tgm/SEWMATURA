@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+        <title>Create a new user</title>
+    </h:head>
+    <h:body>
+    	<h:form id="createForm">
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel for="vname" value="First name:" />
+				<p:inputText id="vname" value="#{userBean.vname}"/>
+				<p:outputLabel for="nname" value="Last name:" />
+				<p:inputText id="nname" value="#{userBean.nname}"/>
+				<p:outputLabel for="age" value="Age:" />
+				<p:inputText id="age" value="#{userBean.age}" />
+				</h:panelGrid>
+				<h:panelGrid columns="3" cellpadding="2">
+				<p:commandButton value="Submit" action="#{userBean.saveUser}" icon="ui-icon-disk"/>
+				<p:commandButton value="Reset" type="reset" icon="ui-icon-close"/>
+				<p:button outcome="index" value="Return" icon="ui-icon-star" />
+			</h:panelGrid>
+		</h:form>
+    </h:body>
+</html> 
